@@ -8,7 +8,8 @@ $ docker-compose up -d --build
 ```
 
 ### API Endpoints
-- /user
-- /login
-- /user/events
-- /user/{id}/events
+- /users [GET|POST|PUT|DELETE]
+- /login [POST]
+- /logout [DELETE]
+- /users/events [GET]
+- /users/{id}/events [GET]

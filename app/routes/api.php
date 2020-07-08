@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('cors')->namespace('api/v1')->prefix('v1')->group(function () {
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::delete('logout', 'SessionController@remove');
+        Route::get('users/events', 'EventsController@index');
+        Route::get('users/{user}/events', 'EventsController@show');
+        Route::post('users/{user}/events', 'EventsController@store');
+        Route::put('users/{user}/events/{event}', 'EventsController@update');
+        Route::delete('users/{user}/events/{event}', 'EventsController@remove');
+        Route::apiResource('users', 'UsersController');
+    });
+
+    Route::post('login', 'SessionController@store');
 });

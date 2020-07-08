@@ -2,10 +2,10 @@
 
 namespace App;
 
-use App\Models\Workout;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Event;
 
 class User extends Authenticatable
 {
@@ -17,11 +17,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'cpf',
+        'name', 'email', 'login',
     ];
 
-    public function workouts()
+    public function events()
     {
-        return $this->hasMany(Workout::class);
+        return $this->hasMany(Event::class, 'owner_id');
     }
 }

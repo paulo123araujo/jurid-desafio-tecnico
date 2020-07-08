@@ -17,7 +17,7 @@ class UserResource extends ResourceCollection
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'cpf' => $this->cpf
+            'email' => $this->email
         ];
     }
 }

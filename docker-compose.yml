@@ -4,8 +4,7 @@ services:
   laravel:
     build: ./app
     image: digitalocean.com/php
-    restart: unless-stopped
-    tty: true
+    restart: always
     working_dir: /var/www
     environment:
       SERVICE_NAME: app
@@ -18,8 +17,7 @@ services:
 
   nginx:
     image: nginx:alpine
-    restart: unless-stopped
-    tty: true
+    restart: always
     ports:
       - "80:80"
       - "443:443"
@@ -31,8 +29,7 @@ services:
 
   mysql:
     image: mysql:5.7.22
-    restart: unless-stopped
-    tty: true
+    restart: always
     ports:
       - "3306:3306"
     environment:
