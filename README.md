@@ -2,7 +2,8 @@
 
 ### How to run
 <p>On the project folder run:</p>
-```
+
+```bash
 $ docker-compose up -d --build
 ```
 
